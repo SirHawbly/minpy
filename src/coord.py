@@ -32,8 +32,13 @@ def main():
     c1 = coord(1,2)
     print(c1.toString())
 
+    try:
+        print('testing a 2nd coord: {}'.format(coord('a', [])))
+    except:
+        print('can\'t create 2nd coord, assertions held.')
+        
 
 # ---
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
