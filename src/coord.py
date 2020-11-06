@@ -1,4 +1,4 @@
-class coord:
+class coord_class:
 
     # constructor
     def __init__(self, yi, xi):
@@ -14,13 +14,6 @@ class coord:
         self.y = yi
         self.x = xi
 
-    # getters
-    def get_x(self):
-        return self.x
-
-    def get_y(self):
-        return self.y
-
     # string function
     def toString(self):
         return "({}:{})".format(self.y, self.x)
@@ -29,11 +22,11 @@ class coord:
 # ---
 
 def main():
-    c1 = coord(1,2)
+    c1 = coord_class(1,2)
     print(c1.toString())
 
     try:
-        print('testing a 2nd coord: {}'.format(coord('a', [])))
+        print('testing a 2nd coord: {}'.format(coord_class('a', [])))
     except:
         print('can\'t create 2nd coord, assertions held.')
         
