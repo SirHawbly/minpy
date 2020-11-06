@@ -1,4 +1,6 @@
-class piece:
+from coord import coord_class as coord
+
+class piece_class:
 
     # constructor
     def __init__(self, pi, di, wi):
@@ -9,16 +11,33 @@ class piece:
                 wi - an integer for the piece's value
         """
 
+        assert(isinstance(pi, coord))
+        assert(isinstance(di, str) and len(di) == 1)
+        assert(isinstance(wi, int))
+        
         self.position = pi
         self.data = di
         self.weight = wi
 
-    # getters
-    def get_weight(self):
-        return self.weight
+    # string function
+    def toString(self):
+        return "[{},{}]{}".format(self.data, self.weight, self.position.toString())
 
-    def get_data(self):
-        return self.data
 
-    def get_pos(self):
-        return self.position
+# ---
+
+def main():
+    p1 = piece_class(coord(0,0), "a", 2)
+    print(p1.toString())
+
+    try:
+        print('testing a 2nd piece: {}'.format(piece_class(-8, 'a', [])))
+    except:
+        print('can\'t create 2nd piece, assertions held.')
+        
+
+# ---
+
+if __name__ == '__main__':
+    main()
+
