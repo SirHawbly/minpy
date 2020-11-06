@@ -16,6 +16,9 @@ class coord_class:
 
     # string function
     def toString(self):
+        """
+        """
+        
         return "({}:{})".format(self.y, self.x)
 
 
