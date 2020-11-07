@@ -3,7 +3,7 @@ from coord import coord_class as coord
 class piece_class:
 
     # constructor
-    def __init__(self, di, pi, ci, wi):
+    def __init__(self, ki, pi, ci, wi):
         """
             args:
                 di - a character that defines the piece
@@ -11,36 +11,83 @@ class piece_class:
                 wi - an integer for the piece's value
         """
 
-        assert(isinstance(di, str) and len(di) == 1)
+        assert(isinstance(ki, str) and len(ki) == 1)
         assert(isinstance(pi, coord))
         assert(isinstance(ci, int))
         assert(isinstance(wi, int))
         
-        self.data = di
+        self.key = ki
         self.position = pi
         self.color = ci
         self.weight = wi
 
 
-    # type check
-    def is_of_type(self, p):
+    # type checker
+    def assert_member_types(self):
         """
         """
 
-        assert(isinstance(p, piece_class))
+        assert(isinstance(self.key, str) and len(self.key) == 1)
+        assert(isinstance(self.position, coord))
+        assert(isinstance(self.color, int))
+        assert(isinstance(self.weight, int))
 
-        if self.data == p.data:
+        
+    # piece key check
+    def is_of_type(self, new_piece=piece_class('-', coord(0,0), -1, -1)):
+        """
+        """
+
+        assert(isinstance(new_piece, piece_class))
+        self.assert_member_types()
+
+        if self.key == new_piece.key:
             return True
         else:
             return False
 
 
-    # string function
+    def set_position(self, new_coord=coord(0,0)):
+        """
+        """
+
+        assert(isinstance(new_coord, coord))
+        self.assert_member_types()
+
+        self.position = new_coord
+
+
+    def set_color(self, new_color=-1):
+        """
+        """
+
+        assert(isinstance(new_color, int))
+        self.assert_member_types()
+
+        self.color = new_color
+
+
+    # string functions
     def toString(self):
         """
         """
         
-        return "[{},{},{}]{}".format(self.data, self.color, self.weight, self.position.toString())
+        self.assert_member_types()
+
+        return "[{},{},{}]{}".format(self.key, self.color, self.weight, self.position.toString())
+
+
+    def print_key(self, is_capital=False):
+        """
+        """
+
+        assert(isinstance(is_capital, bool))
+        self.assert_member_types()
+
+        if is_capital:
+            return self.key.lower()
+        else:
+            return self.key.upper()
 
 
 # ---
