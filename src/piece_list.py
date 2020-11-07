@@ -5,32 +5,36 @@ from piece_type import piece_type_list
 class piece_list_class:
 
     # constructor
-    def __init__(self, piece_list=[], list_color=-1):
+    def __init__(self, piece_list=[], piece_color=-1):
         """
         """
 
+        # verify that the passed piece list is a list, and that
+        # all pieces inside are actually pieces.
+        assert isinstance(piece_list, list)
+
+        for piece in piece_list:
+            assert(isinstance(piece, piece_class))
+
+        # verify that the passed color is an int.
+        assert isinstance(piece_color, int)
+
+        # set data members of class to passed values.
         self.pieces = piece_list
-        self.assert_piece_types()
+        self.list_color = piece_color
 
-        self.piece_color = list_color
+        # run through the list to doublecheck the contents.
+        self.assert_member_types()
 
     
-    # check list for each item's type
-    def assert_piece_types(self, ):
+    # check list for each item's type + color
+    def assert_member_types(self, ):
         """
         """
         
-        for p in self.pieces:
-            assert(isinstance(p, piece_class))
-
-
-    # check for color
-    def assert_piece_color(self, ):
-        """
-        """
-
-        for p in self.pieces:
-            assert(p.color == self.piece_color)
+        for piece in self.pieces:
+            assert(isinstance(piece, piece_class))
+            assert(piece.color == self.list_color)
 
 
     # check for king
@@ -38,8 +42,8 @@ class piece_list_class:
         """
         """
 
-        for p in self.pieces:
-            if p.is_of_type(piece_type_list.king):
+        for piece in self.pieces:
+            if piece.is_of_type(piece_type_list.king):
                 return True
         
         return False
@@ -50,18 +54,18 @@ class piece_list_class:
         """
         """
 
-        t = 0
+        total = 0
         
-        for p in self.pieces:
-            t += p.weight
+        for piece in self.pieces:
+            total += piece.weight
         
-        return t
+        return total
 
     # string function
     def toString(self, ):
         """
         """
-        
+
         return ""
 
 
