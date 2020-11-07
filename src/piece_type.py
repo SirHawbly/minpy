@@ -16,7 +16,7 @@ class piece_type:
         self.knight = piece_class("n", -1, c, 3)
         self.rook = piece_class("r", -1, c, 2)
         self.pawn = piece_class("p", -1, c, 1)
-
+        self.blank = piece_class('-', c, -1, -1)
 
     # string function
     def toString(self):
