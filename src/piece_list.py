@@ -5,16 +5,18 @@ from piece_type import piece_type_list
 class piece_list_class:
 
     # constructor
-    def __init__(self, ):
+    def __init__(self, piece_list=[], list_color=-1):
         """
         """
 
-        self.pieces = []
-        self.piece_color = -1
+        self.pieces = piece_list
+        self.assert_piece_types()
+
+        self.piece_color = list_color
 
     
     # check list for each item's type
-    def assert_pieces(self, ):
+    def assert_piece_types(self, ):
         """
         """
         
@@ -56,7 +58,10 @@ class piece_list_class:
         return t
 
     # string function
-    def toString(self):
+    def toString(self, ):
+        """
+        """
+        
         return ""
 
 
