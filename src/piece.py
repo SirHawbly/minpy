@@ -21,6 +21,7 @@ class piece_class:
         self.color = ci
         self.weight = wi
 
+        self.assert_member_types()
 
     # type checker
     def assert_member_types(self):
