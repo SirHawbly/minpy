@@ -1,25 +1,29 @@
-from coord import coord_class 
-from piece import piece_class 
+# imports
+import coord
+import piece 
 
+
+# class object
 class piece_type:
 
     # constructor
-    def __init__(self):
+    def __init__(self) -> None:
         """
             create a list of basic chess pieces
         """
-        c = coord_class(-1, -1)
 
-        self.king = piece_class("k", -1, c, 20)
-        self.queen = piece_class("q", -1, c, 5)
-        self.bishop = piece_class("b", -1, c, 4)
-        self.knight = piece_class("n", -1, c, 3)
-        self.rook = piece_class("r", -1, c, 2)
-        self.pawn = piece_class("p", -1, c, 1)
-        self.blank = piece_class('-', c, -1, -1)
+        c = coord.coord_class(-1, -1)
+
+        self.king = piece.piece_class("k", c, -1, 20)
+        self.queen = piece.piece_class("q", c, -1, 5)
+        self.bishop = piece.piece_class("b", c, -1, 4)
+        self.knight = piece.piece_class("n", c, -1, 3)
+        self.rook = piece.piece_class("r", c, -1, 2)
+        self.pawn = piece.piece_class("p", c, -1, 1)
+        self.blank = piece.piece_class('-', c, -1, -1)
 
     # string function
-    def toString(self):
+    def toString(self) -> str:
         """
         """
         
