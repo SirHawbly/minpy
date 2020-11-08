@@ -1,9 +1,12 @@
-from coord import coord_class as coord
+# imports
+import coord
 
+
+# class object
 class piece_class:
 
     # constructor
-    def __init__(self, ki, pi, ci, wi):
+    def __init__(self, ki, pi, ci, wi) -> None:
         """
             args:
                 di - a character that defines the piece
@@ -12,7 +15,7 @@ class piece_class:
         """
 
         assert(isinstance(ki, str) and len(ki) == 1)
-        assert(isinstance(pi, coord))
+        assert(isinstance(pi, coord.coord_class))
         assert(isinstance(ci, int))
         assert(isinstance(wi, int))
         
@@ -23,23 +26,25 @@ class piece_class:
 
         self.assert_member_types()
 
+
     # type checker
-    def assert_member_types(self):
+    def assert_member_types(self) -> None:
         """
         """
 
         assert(isinstance(self.key, str) and len(self.key) == 1)
-        assert(isinstance(self.position, coord))
+        assert(isinstance(self.position, coord.coord_class))
         assert(isinstance(self.color, int))
         assert(isinstance(self.weight, int))
 
         
     # piece key check
-    def is_of_type(self, new_piece=piece_class('-', coord(0,0), -1, -1)):
+    def is_of_type(self, new_piece=None) -> bool:
         """
         """
 
         assert(isinstance(new_piece, piece_class))
+
         self.assert_member_types()
 
         if self.key == new_piece.key:
@@ -48,28 +53,32 @@ class piece_class:
             return False
 
 
-    def set_position(self, new_coord=coord(0,0)):
+    # setter for position
+    def set_position(self, new_coord=coord.coord_class(0,0)) -> None:
         """
         """
 
         assert(isinstance(new_coord, coord))
+
         self.assert_member_types()
 
         self.position = new_coord
 
 
-    def set_color(self, new_color=-1):
+    # setter for color
+    def set_color(self, new_color=-1) -> None:
         """
         """
 
         assert(isinstance(new_color, int))
+
         self.assert_member_types()
 
         self.color = new_color
 
 
     # string functions
-    def toString(self):
+    def toString(self) -> str:
         """
         """
         
@@ -78,11 +87,13 @@ class piece_class:
         return "[{},{},{}]{}".format(self.key, self.color, self.weight, self.position.toString())
 
 
-    def print_key(self, is_capital=False):
+    # function to get key with case
+    def print_key(self, is_capital=False) -> str:
         """
         """
 
         assert(isinstance(is_capital, bool))
+
         self.assert_member_types()
 
         if is_capital:
@@ -93,8 +104,12 @@ class piece_class:
 
 # ---
 
-def main():
-    p1 = piece_class("a", 10, coord(0,0), 2)
+def main() -> None:
+    """
+    """
+
+    p1 = piece_class("a", coord.coord_class(0,0), 10, 2)
+
     print(p1.toString())
 
     try:
