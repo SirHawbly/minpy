@@ -11,21 +11,26 @@ PieceTypeNames = {
   }
 
 RowCoordNames = {
-  '0': '0',
-  '1': '1',
-  '2': '2',
-  '3': '3',
-  '4': '4',
-  '5': '5'
+  0: '0',
+  1: '1',
+  2: '2',
+  3: '3',
+  4: '4',
+  5: '5'
   }
 
 ColCoordNames = {
-  '0': 'a',
-  '1': 'b',
-  '2': 'c',
-  '3': 'd',
-  '4': 'e'
+  0: 'a',
+  1: 'b',
+  2: 'c',
+  3: 'd',
+  4: 'e'
   }
+
+ColorNames = {
+  'b': 'black',
+  'w': 'white'
+}
 
 
 class ChessPiece:
@@ -35,10 +40,10 @@ class ChessPiece:
 
   def __init__(self, piece_type, row_coord, col_coord, color) -> None:
     """
-    :param piece_type:
-    :param row_coord:
-    :param col_coord:
-    :param color:
+    :param piece_type: ('k', 'q', 'b', 'n', 'r', 'p')
+    :param row_coord: (0, 1, 2, 3, 4, 5)
+    :param col_coord: (0, 1, 2, 3, 4)
+    :param color: ('w', 'b')
     """
     self.piece_type = piece_type
     self.row_coord = row_coord
@@ -48,12 +53,12 @@ class ChessPiece:
   @property
   def __str__(self) -> str:
     return ("[ "
-            + self.piece_type + ', '
-            + str(self.row_coord) + ', '
-            + str(self.col_coord) + ', '
-            + self.color + ' ]')
+            + PieceTypeNames[self.piece_type] + ', '
+            + RowCoordNames[self.row_coord] + ', '
+            + ColCoordNames[self.col_coord] + ', '
+            + ColorNames[self.color] + ' ]')
 
 
 if __name__ == "__main__":
-  test_piece = ChessPiece('k', 1, 2, 'black')
-  print(test_piece)
+  test_piece = ChessPiece('k', 1, 2, 'b')
+  print(ChessPiece('k', 1, 2, 'b'))
