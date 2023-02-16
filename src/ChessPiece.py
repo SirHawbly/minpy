@@ -1,5 +1,4 @@
 
-
 PieceTypeNames = {
   'k': 'king',
   'q': 'queen',
@@ -43,22 +42,23 @@ class ChessPiece:
     :param piece_type: ('k', 'q', 'b', 'n', 'r', 'p')
     :param row_coord: (0, 1, 2, 3, 4, 5)
     :param col_coord: (0, 1, 2, 3, 4)
-    :param color: ('w', 'b')
+    :param color: ('b', 'w')
     """
     self.piece_type = piece_type
     self.row_coord = row_coord
     self.col_coord = col_coord
     self.color = color
 
-  @property
-  def __str__(self) -> str:
-    return ("[ "
-            + PieceTypeNames[self.piece_type] + ', '
-            + RowCoordNames[self.row_coord] + ', '
-            + ColCoordNames[self.col_coord] + ', '
-            + ColorNames[self.color] + ' ]')
+  def __str__(self):
+    return ('Piece( ' +
+            ColorNames[self.color] + ' ' +
+            PieceTypeNames[self.piece_type] + ', ' +
+            RowCoordNames[self.row_coord] + '' +
+            ColCoordNames[self.col_coord] + ' )')
+
+  __repr__ = __str__
 
 
 if __name__ == "__main__":
-  test_piece = ChessPiece('k', 1, 2, 'b')
-  print(ChessPiece('k', 1, 2, 'b'))
+    new_test_piece = ChessPiece('k', 1, 2, 'b')
+    print(new_test_piece)
