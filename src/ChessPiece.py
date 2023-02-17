@@ -10,12 +10,12 @@ PieceTypeNames = {
   }
 
 RowCoordNames = {
-  0: '0',
-  1: '1',
-  2: '2',
-  3: '3',
-  4: '4',
-  5: '5'
+  0: '1',
+  1: '2',
+  2: '3',
+  3: '4',
+  4: '5',
+  5: '6'
   }
 
 ColCoordNames = {
@@ -28,7 +28,8 @@ ColCoordNames = {
 
 ColorNames = {
   'b': 'black',
-  'w': 'white'
+  'w': 'white',
+  'n': 'none'
 }
 
 
@@ -37,12 +38,12 @@ class ChessPiece:
   Piece Type for storing information on the different pieces on board
   """
 
-  def __init__(self, piece_type, row_coord, col_coord, color) -> None:
+  def __init__(self, piece_type: str, row_coord: int, col_coord: int, color: str) -> None:
     """
-    :param piece_type: ('k', 'q', 'b', 'n', 'r', 'p')
+    :param piece_type: ('k', 'q', 'b', 'n', 'r', 'p', '.')
     :param row_coord: (0, 1, 2, 3, 4, 5)
     :param col_coord: (0, 1, 2, 3, 4)
-    :param color: ('b', 'w')
+    :param color: ('b', 'w', 'n')
     """
     self.piece_type = piece_type
     self.row_coord = row_coord
@@ -60,5 +61,5 @@ class ChessPiece:
 
 
 if __name__ == "__main__":
-    new_test_piece = ChessPiece('k', 1, 2, 'b')
-    print(new_test_piece)
+  new_test_piece = ChessPiece('k', 1, 2, 'b')
+  print(new_test_piece)
