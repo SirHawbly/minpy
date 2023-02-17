@@ -48,5 +48,5 @@ class ChessBoard:
 
 
 if __name__ == "__main__":
-  test_chess_board = ChessBoard()
+  test_chess_board = ChessBoard(11)
   print(test_chess_board)
