@@ -1,4 +1,4 @@
-
+# Symbols and Names for Pieces
 PieceTypeNames = {
   'k': 'king',
   'q': 'queen',
@@ -9,27 +9,30 @@ PieceTypeNames = {
   '.': 'blank',
   }
 
+# Numbers and Names for Row Coords
 RowCoordNames = {
   0: '1',
   1: '2',
   2: '3',
   3: '4',
   4: '5',
-  5: '6'
+  5: '6',
   }
 
+# Numbers and Names for Columns Coords
 ColCoordNames = {
   0: 'a',
   1: 'b',
   2: 'c',
   3: 'd',
-  4: 'e'
+  4: 'e',
   }
 
+# Symbols and Names for Piece Colors
 ColorNames = {
   'b': 'black',
   'w': 'white',
-  'n': 'none'
+  'n': 'none',
 }
 
 
@@ -38,7 +41,11 @@ class ChessPiece:
   Piece Type for storing information on the different pieces on board
   """
 
-  def __init__(self, piece_type: str, row_coord: int, col_coord: int, color: str) -> None:
+  def __init__(self,
+               piece_type: str,
+               row_coord: int,
+               col_coord: int,
+               color: str) -> None:
     """
     :param piece_type: ('k', 'q', 'b', 'n', 'r', 'p', '.')
     :param row_coord: (0, 1, 2, 3, 4, 5)
