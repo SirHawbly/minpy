@@ -11,12 +11,12 @@ PieceTypeNames = {
 
 # Numbers and Names for Row Coords
 RowCoordNames = {
-  0: '1',
-  1: '2',
-  2: '3',
-  3: '4',
-  4: '5',
-  5: '6',
+  0: '6',
+  1: '5',
+  2: '4',
+  3: '3',
+  4: '2',
+  5: '1',
   }
 
 # Numbers and Names for Columns Coords
@@ -61,8 +61,8 @@ class ChessPiece:
     return ('Piece( ' +
             ColorNames[self.color] + ' ' +
             PieceTypeNames[self.piece_type] + ', ' +
-            RowCoordNames[self.row_coord] + '' +
-            ColCoordNames[self.col_coord] + ' )')
+            ColCoordNames[self.col_coord] + '' +
+            RowCoordNames[self.row_coord] + ' )')
 
   __repr__ = __str__
 
