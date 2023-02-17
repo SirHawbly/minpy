@@ -39,6 +39,13 @@ class ChessBoard:
   def reset_board(self) -> None:
     return
 
+  def import_board(self, board_state: str) -> None:
+    return
+
+  def export_board(self) -> str:
+    ret_str = ''
+    return ret_str
+
 
 if __name__ == "__main__":
   test_chess_board = ChessBoard()
